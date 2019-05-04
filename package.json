@@ -1,6 +1,6 @@
 {
   "name": "@crystal-ball/semantic-release-base",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Fellowship shared Semantic Release configs",
   "main": "index.js",
   "keywords": [
@@ -30,8 +30,20 @@
     "semantic-release": "15.13.3"
   },
   "devDependencies": {
+    "@crystal-ball/commitizen-base": "1.0.0",
     "@crystal-ball/prettier-base": "1.0.0",
-    "eslint-config-eloquence": "11.0.0"
+    "eslint-config-eloquence": "11.0.0",
+    "husky": "2.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-adapter-eslint"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
+    }
   },
   "prettier": "@crystal-ball/prettier-base"
 }
