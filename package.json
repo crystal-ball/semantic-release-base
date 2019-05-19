@@ -33,7 +33,7 @@
     "@crystal-ball/commitizen-base": "1.0.0",
     "@crystal-ball/prettier-base": "1.0.0",
     "eslint-config-eloquence": "11.2.0",
-    "husky": "2.2.0"
+    "husky": "2.3.0"
   },
   "config": {
     "commitizen": {
