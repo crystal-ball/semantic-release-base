@@ -1,0 +1,3 @@
+- Custom templates for release notes/changelog
+- Header is h2 for release and h3 for patch releases
+-

@@ -1,0 +1,12 @@
+* {{formattedDescription}}
+([{{commit.short}}]({{@root.formattedHost}}commit/{{commit.long}})){{refsPrefix}}{{~#each formattedReferences}}
+[{{this.formattedRef}}](
+{{@root.formattedHost}}
+{{#if this.formattedRepo}}
+{{this.formattedRepo}}
+{{else}}
+{{@root.formattedRepo}}
+{{/if}}
+/issue/
+{{this.issue}})
+{{~/each}}

@@ -1,22 +1,70 @@
 'use strict'
 
 const path = require('path')
+const fs = require('fs')
 // eslint-disable-next-line import/no-dynamic-require
 const packageJSON = require(path.resolve(process.cwd(), 'package.json'))
 
-// Overwrite header partial to use h2 for releases except patch releases which are h4s
-const headerPartial = `{{#if isPatch}}####{{else}}##{{/if}} {{#if @root.linkCompare}}[{{version}}]({{@root.host}}/{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}/compare/{{previousTag}}...{{currentTag}}){{else}}{{version}}{{/if}}{{#if title}} "{{title}}"{{/if}}{{#if date}} ({{date}}){{/if}}`
+const mainTemplate = fs.readFileSync(
+  path.resolve(__dirname, './templates/template.hbs'),
+  { encoding: 'utf-8' },
+)
+const headerPartial = fs.readFileSync(path.resolve(__dirname, './templates/header.hbs'), {
+  encoding: 'utf-8',
+})
+const commitPartial = fs.readFileSync(path.resolve(__dirname, './templates/commit.hbs'), {
+  encoding: 'utf-8',
+})
 
-// Overwrite the commit partial for ESLint to use `commit.short` and `commit.long`
-// for hash references so the output is readable
-const commitPartial = `* {{#if message}}{{message}}{{else}}{{header}}{{/if}}
+const formatHeader = (
+  formattedHost,
+  formattedRepo,
+  { currentTag, date, isPatch, previousTag, title, version },
+) => {
+  const headerLevel = isPatch ? '###' : '##'
 
-{{~!-- commit hash --}} {{#if @root.linkReferences}}([{{commit.short}}]({{#if @root.host}}{{@root.host}}/{{/if}}{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}/{{@root.commit}}/{{commit.long}})){{else}}{{hash~}}{{/if}}
+  let header = `${headerLevel} [${version}](${formattedHost}${formattedRepo}/compare/${previousTag}...${currentTag})`
+  if (title) header += ` "${title}"`
+  if (date) header += ` (${date})`
+  return header
+}
 
-{{~!-- commit references --}}{{#if references}}, closes{{~#each references}} {{#if @root.linkReferences}}[{{#if this.owner}}{{this.owner}}/{{/if}}{{this.repository}}#{{this.issue}}]({{#if @root.host}}{{@root.host}}/{{/if}}{{#if this.repository}}{{#if this.owner}}{{this.owner}}/{{/if}}{{this.repository}}{{else}}{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}{{/if}}/{{@root.issue}}/{{this.issue}}){{else}}{{#if this.owner}}{{this.owner}}/{{/if}}{{this.repository}}#{{this.issue}}{{/if}}{{/each}}{{/if}}`
+const formatCommit = commit => {
+  const { message, header, references } = commit
+  const formattedDescription = message || header
+  const refsPrefix = references && references.length ? ', closes' : ''
+
+  // Add a formattedRefs
+  const formattedReferences = references.map(ref => ({
+    formattedRef: `${ref.owner ? `${ref.owner}/` : ''}${
+      ref.repository ? ref.repository : ''
+    }#${ref.issue}`,
+    formattedRepo:
+      ref.owner || ref.repository
+        ? `${ref.owner ? `${ref.owner}/` : ''}${ref.repository}`
+        : null,
+    ...ref,
+  }))
+
+  // Ref: [owner/repository#issue]()
+  // owner+repository not defined for same repo close -> will be defined for closing
+  // issue in another repo
+  // org
+  // repo
+
+  // host?owner?repository/issue
+
+  return {
+    ...commit,
+    formattedDescription,
+    formattedReferences,
+    refsPrefix,
+  }
+}
 
 module.exports = {
-  branch: 'master',
+  // branch: 'master',
+  branch: 'feat/formatting',
   // Option is passed to all plugins to configure using ESLint commit format
   preset: 'eslint',
   plugins: [
@@ -27,16 +75,33 @@ module.exports = {
         writerOpts: {
           // Leaving this for reference: it's possible to manipulate the commit
           // data using a transform fn
-          // transform: commit => {
-          //   commit.isRad = true
-          //   return commit
-          // },
+          transform: commit => {
+            console.log(commit)
+            console.log('COMMIT')
+
+            return formatCommit(commit)
+          },
+          finalizeContext: (context /* , options, commits, keyCommit */) => {
+            console.log('FINALIZE')
+            const { host, owner, repository } = context
+
+            const formattedHost = host ? `${host}/` : ''
+            const formattedRepo = `${owner ? `${owner}/` : ''}${repository}`
+            const formattedHeader = formatHeader(formattedHost, formattedRepo, context)
+
+            return {
+              ...context,
+              formattedHost,
+              formattedRepo,
+              formattedHeader,
+            }
+          },
+          mainTemplate,
           headerPartial,
           commitPartial,
         },
       },
     ],
-    '@semantic-release/release-notes-generator',
     [
       '@semantic-release/changelog',
       {
@@ -49,3 +114,6 @@ module.exports = {
     '@semantic-release/github',
   ],
 }
+
+// // Overwrite the commit partial for ESLint to use `commit.short` and `commit.long`
+// // for hash references so the output is readable
