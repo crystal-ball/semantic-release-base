@@ -66,6 +66,10 @@ deploy:
     - npx semantic-release
 ```
 
+## Changelog generation
+
+- Commits with breaking changes will create a notes section
+
 ## Included plugins
 
 - [@semantic-release/commit-analyzer][]
