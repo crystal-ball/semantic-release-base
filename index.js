@@ -1,8 +1,9 @@
 'use strict'
 
-const { changelogTitle } = require('./lib/changelog-title')
-const { message } = require('./lib/git-opts')
-const { writerOpts, parserOpts } = require('./lib/release-notes-generator-opts')
+const changelogOpts = require('./lib/changelog-opts')
+const gitOpts = require('./lib/git-opts')
+const githubOpts = require('./lib/github-opts')
+const releaseNotesGeneratorOpts = require('./lib/release-notes-generator-opts')
 
 module.exports = {
   branch: 'master',
@@ -10,11 +11,11 @@ module.exports = {
   preset: 'eslint',
   plugins: [
     '@semantic-release/commit-analyzer',
-    ['@semantic-release/release-notes-generator', { parserOpts, writerOpts }],
-    ['@semantic-release/changelog', { changelogTitle }],
+    ['@semantic-release/release-notes-generator', releaseNotesGeneratorOpts],
+    ['@semantic-release/changelog', changelogOpts],
     // ⚠️ Release notes and changelog must be created before running git+npm tasks
-    ['@semantic-release/git', { message }],
+    ['@semantic-release/git', gitOpts],
     '@semantic-release/npm',
-    '@semantic-release/github',
+    ['@semantic-release/github', githubOpts],
   ],
 }
