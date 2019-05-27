@@ -16,21 +16,12 @@ exports[`Changelog writer configs - Commit groups The commit groups are rendered
 
 * Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
 
-#### Docs
+#### Docs, Build, Upgrade, Chore
 
-* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
-
-#### Build
-
-* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
-
-#### Upgrade
-
-* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
-
-#### Chore
-
-* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Docs commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Build commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Upgrade commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Chore commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
 "
 `;
 
