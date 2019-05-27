@@ -74,12 +74,9 @@ exports[`Changelog writer configs All release notes features are rendered correc
 * Fixing broken assertion in test([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [#75](https://github.com/crystal-ball/semantic-release-base/issue/75)
 * Fixing broken assertion in test([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [cool-org/cool-package#75](https://github.com/cool-org/cool-package/issue/75)
 
-#### Docs
+#### Docs, Upgrade
 
 * Added docs on config overrides([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
-
-#### Upgrade
-
 * ESLint to latest([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
 "
 `;
