@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Changelog writer configs - Commit groups The commit groups are rendered correctly 1`] = `
+"## [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) (2019-05-26)
+
+
+#### 💖 New
+
+* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+
+#### ✨ Update
+
+* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+
+#### 🛠 Fix
+
+* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+
+#### Docs, Build, Upgrade, Chore
+
+* Docs commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Build commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Upgrade commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Chore commit([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+"
+`;
+
+exports[`Changelog writer configs - Commits The commit content is formatted correctly 1`] = `
+"## [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) (2019-05-26)
+
+
+#### ✨ Update
+
+* Make the tests delightful([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* Make the tests really fast([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+"
+`;
+
+exports[`Changelog writer configs - Commits When a commit message starts with a lowercase letter, then it is capitalized 1`] = `
+"## [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) (2019-05-26)
+
+
+#### ✨ Update
+
+* Add additional config options([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+"
+`;
+
+exports[`Changelog writer configs - References When a commit has references, then they are rendered correctly 1`] = `
+"## [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) (2019-05-26)
+
+
+#### 🛠 Fix
+
+* Hecka rad test message([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [#90](https://github.com/crystal-ball/semantic-release-base/issue/90) [rad-repo#90](https://github.com/rad-repo/issue/90) [cool-org/cool-repo#90](https://github.com/cool-org/cool-repo/issue/90)
+"
+`;
+
+exports[`Changelog writer configs All release notes features are rendered correctly 1`] = `
+"## [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) (2019-05-26)
+
+
+#### 💖 New
+
+* Added a new feature that is rad([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [#80](https://github.com/crystal-ball/semantic-release-base/issue/80)
+
+#### ✨ Update
+
+* Added additional overrides to config generator.([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [#99](https://github.com/crystal-ball/semantic-release-base/issue/99)
+
+#### 🛠 Fix
+
+* Fixed a lot of broken things in this release([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [#100](https://github.com/crystal-ball/semantic-release-base/issue/100)
+* Fixing broken assertion in test([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [#75](https://github.com/crystal-ball/semantic-release-base/issue/75)
+* Fixing broken assertion in test([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a)), closes [cool-org/cool-package#75](https://github.com/cool-org/cool-package/issue/75)
+
+#### Docs, Upgrade
+
+* Added docs on config overrides([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+* ESLint to latest([8d14946](https://github.com/crystal-ball/semantic-release-base/commit/8d14946c50464dcf99cf5a9bd701262b2e3a2b4a))
+"
+`;

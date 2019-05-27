@@ -1,0 +1,15 @@
+{{> header}}
+
+{{! Render notes first b/c they're important, eg breaking changes }}
+{{> notes}}
+{{#each commitGroups}}
+{{#if title}}
+
+
+#### {{title}}
+{{/if}}
+{{#each commits}}
+{{> commit}}
+{{/each}}
+{{/each}}
+

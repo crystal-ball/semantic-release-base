@@ -18,7 +18,8 @@
   },
   "license": "ISC",
   "scripts": {
-    "test": "npm run lint",
+    "test:unit": "npx jest",
+    "test": "npm run lint && npm run test:unit",
     "semantic-release": "semantic-release",
     "lint": "NODE_ENV=test eslint --format=pretty *.js",
     "format": "prettier --write \"*.{js,md}\""
@@ -33,7 +34,8 @@
     "@crystal-ball/commitizen-base": "1.0.0",
     "@crystal-ball/prettier-base": "1.0.0",
     "eslint-config-eloquence": "11.2.0",
-    "husky": "2.3.0"
+    "husky": "2.3.0",
+    "jest": "24.8.0"
   },
   "config": {
     "commitizen": {
@@ -45,5 +47,10 @@
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
     }
   },
-  "prettier": "@crystal-ball/prettier-base"
+  "prettier": "@crystal-ball/prettier-base",
+  "release": {
+    "extends": [
+      "./index.js"
+    ]
+  }
 }

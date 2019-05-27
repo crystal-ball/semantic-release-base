@@ -1,0 +1,3 @@
+{{! * <message>(<url>), closes <refs> }}
+
+* {{message}}([{{shortHash}}]({{commitUrl}})){{#if references}}, closes{{/if}}{{~#each references}} [{{completeReference}}]({{referenceUrl}}){{~/each}}
