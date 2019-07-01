@@ -26,12 +26,12 @@
     "format": "prettier --write \"*.{js,md}\""
   },
   "dependencies": {
-    "@semantic-release/changelog": "3.0.2",
-    "@semantic-release/git": "7.0.8",
-    "@semantic-release/github": "5.2.10",
-    "@semantic-release/npm": "5.1.7",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/git": "7.0.16",
+    "@semantic-release/github": "5.4.2",
+    "@semantic-release/npm": "5.1.13",
     "conventional-changelog-eslint": "3.0.1",
-    "semantic-release": "15.13.12"
+    "semantic-release": "15.13.18"
   },
   "devDependencies": {
     "@crystal-ball/commitizen-adapter": "1.0.0",
