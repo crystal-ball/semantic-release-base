@@ -1,0 +1,16 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - '@semantic-release/git > lodash':
+        patched: '2019-07-04T00:36:15.583Z'
+    - semantic-release > lodash:
+        patched: '2019-07-04T00:36:15.583Z'
+    - semantic-release > @semantic-release/commit-analyzer > lodash:
+        patched: '2019-07-04T00:36:15.583Z'
+    - semantic-release > @semantic-release/commit-analyzer > conventional-commits-parser > lodash:
+        patched: '2019-07-04T00:36:15.583Z'
+    - semantic-release > @semantic-release/release-notes-generator > conventional-changelog-writer > lodash:
+        patched: '2019-07-04T00:36:15.583Z'
