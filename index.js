@@ -14,8 +14,9 @@ module.exports = {
     ['@semantic-release/release-notes-generator', releaseNotesGeneratorOpts],
     ['@semantic-release/changelog', changelogOpts],
     // ⚠️ Release notes and changelog must be created before running git+npm tasks
-    ['@semantic-release/git', gitOpts],
     '@semantic-release/npm',
+    // ⚠️ Git task must be run after npm in order to update package.json version
+    ['@semantic-release/git', gitOpts],
     ['@semantic-release/github', githubOpts],
   ],
 }
