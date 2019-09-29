@@ -6,7 +6,6 @@ const githubOpts = require('./lib/github-opts')
 const releaseNotesGeneratorOpts = require('./lib/release-notes-generator-opts')
 
 module.exports = {
-  branch: 'master',
   // Option is passed to all plugins to configure using ESLint commit format
   preset: 'eslint',
   plugins: [
