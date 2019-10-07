@@ -4,8 +4,8 @@
   <a href="https://www.npmjs.com/package/@crystal-ball/semantic-release-base">
     <img src="https://img.shields.io/npm/v/@crystal-ball/semantic-release-base.svg?style=flat-square" alt="NPM version">
   </a>
-  <a href="https://travis-ci.com/crystal-ball/semantic-release-base">
-    <img src="https://travis-ci.com/crystal-ball/semantic-release-base.svg?branch=master" alt="Travis build status">
+  <a href="https://github.com/crystal-ball/semantic-release-base/actions?workflow=CI%2FCD">
+    <img src="https://github.com/crystal-ball/semantic-release-base/workflows/CI%2FCD/badge.svg" alt="Build status" />
   </a>
   <a href="https://renovatebot.com/">
     <img src="https://img.shields.io/badge/Renovate-enabled-32c3c2.svg" alt="Dependency versions managed by Renovate" />
@@ -66,9 +66,35 @@ Configurations must be set as environment values including:
 - `GH_TOKEN` Github token
 - `NPM_TOKEN` NPM token
 
+_Configuring Github Actions_
+
+```yml
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10'
+      - name: Install
+        run: npm install
+        env:
+          CI: true
+      - name: Test
+        run: npm test
+      - name: Release
+        if: success() && github.ref == 'refs/heads/master'
+        run: npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.SEMANTIC_GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.SEMANTIC_NPM_TOKEN }}
+```
+
 _Configuring Travis_
 
-```
+```yml
 deploy:
   provider: script
   skip_cleanup: true
