@@ -38,8 +38,8 @@
   "devDependencies": {
     "@crystal-ball/commitizen-adapter": "1.4.0",
     "@crystal-ball/prettier-base": "1.5.0",
-    "eslint-config-eloquence": "12.4.0",
-    "husky": "3.0.8",
+    "eslint-config-eloquence": "12.7.1",
+    "husky": "3.0.9",
     "jest": "24.9.0"
   },
   "config": {
