@@ -20,10 +20,9 @@
   "license": "ISC",
   "scripts": {
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "NODE_ENV=test eslint --format=pretty **/*.js",
+    "test:lint": "NODE_ENV=test eslint --format=pretty index.js lib",
     "test:unit": "npx jest",
-    "semantic-release": "semantic-release",
-    "format": "prettier --write \"lib/*.{js,md}\""
+    "format": "prettier --write index.js lib/**"
   },
   "dependencies": {
     "@semantic-release/changelog": "3.0.5",
