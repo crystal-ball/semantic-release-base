@@ -30,9 +30,9 @@
     "@semantic-release/git": "7.0.18",
     "@semantic-release/github": "5.5.5",
     "@semantic-release/npm": "5.3.4",
-    "@semantic-release/release-notes-generator": "7.3.2",
+    "@semantic-release/release-notes-generator": "7.3.3",
     "conventional-changelog-eslint": "3.0.4",
-    "semantic-release": "15.13.30"
+    "semantic-release": "15.13.31"
   },
   "devDependencies": {
     "@crystal-ball/commitizen-base": "2.1.0",
