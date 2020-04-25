@@ -22,7 +22,7 @@
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "NODE_ENV=test eslint --format=pretty index.js lib",
     "test:unit": "npx jest",
-    "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx,scss}' !CHANGELOG.md"
+    "format": "prettier --write '*.{js,json,md}' '**/*.{js,json,md,mdx}' !CHANGELOG.md"
   },
   "dependencies": {
     "@semantic-release/changelog": "5.0.1",
