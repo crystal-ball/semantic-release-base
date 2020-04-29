@@ -57,5 +57,10 @@
     "extends": [
       "./index.js"
     ]
+  },
+  "renovate": {
+    "extends": [
+      "github>crystal-ball/renovate-base:library"
+    ]
   }
 }
