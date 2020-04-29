@@ -39,8 +39,8 @@ webpack.config.js
 __mocks__
 test
 jest.config.js
-lib/**/*.spec.js
-lib/**/*.spec.js.snap
+src/**/*.spec.js
+src/**/*.spec.js.snap
 
 # Documentation
 # -------------------------------------
