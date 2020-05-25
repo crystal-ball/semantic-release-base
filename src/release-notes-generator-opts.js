@@ -6,6 +6,7 @@ const assert = require('assert')
 
 // Read in all the handlebars templates and partials
 const hbsPartials = ['commit', 'header', 'main', 'notes'].reduce((acc, filename) => {
+  // eslint-disable-next-line -- Async setup hook not provided
   acc[filename] = fs.readFileSync(
     path.resolve(__dirname, `../templates/${filename}.hbs`),
     { encoding: 'utf-8' },

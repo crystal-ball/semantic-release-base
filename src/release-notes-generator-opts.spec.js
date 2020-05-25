@@ -1,7 +1,7 @@
 'use strict'
 
 const { Readable, Writable } = require('stream')
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, node/no-extraneous-require */
 const conventionalChangelogWriter = require('conventional-changelog-writer')
 
 const { writerOpts } = require('./release-notes-generator-opts')
