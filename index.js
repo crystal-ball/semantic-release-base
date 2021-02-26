@@ -8,6 +8,7 @@ const releaseNotesGeneratorOpts = require('./src/release-notes-generator-opts')
 module.exports = {
   // Option is passed to all plugins to configure using ESLint commit format
   preset: 'eslint',
+  branches: ['main', 'master'],
   plugins: [
     '@semantic-release/commit-analyzer',
     ['@semantic-release/release-notes-generator', releaseNotesGeneratorOpts],
