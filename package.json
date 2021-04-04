@@ -19,6 +19,7 @@
   },
   "license": "ISC",
   "scripts": {
+    "commit": "cz",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "NODE_ENV=test eslint --format=pretty index.js src",
     "test:unit": "npx jest",
@@ -40,15 +41,5 @@
     "@types/jest": "26.0.22",
     "eslint-config-eloquence": "18.1.0",
     "jest": "26.6.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@crystal-ball/commitizen-base"
-    }
-  },
-  "renovate": {
-    "extends": [
-      "github>crystal-ball/renovate-base:library"
-    ]
   }
 }
