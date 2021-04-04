@@ -1,7 +1,6 @@
 'use strict'
 
 const { Readable, Writable } = require('stream')
-/* eslint-disable import/no-extraneous-dependencies, node/no-extraneous-require */
 const conventionalChangelogWriter = require('conventional-changelog-writer')
 
 const { writerOpts } = require('./release-notes-generator-opts')
@@ -69,7 +68,7 @@ const generateReleaseNotes = (context, commits) =>
   })
 
 describe('Changelog writer configs', () => {
-  test('All release notes features are rendered correctly', async () => {
+  it('All release notes features are rendered correctly', async () => {
     // Create a single release that should have an example of every major feature
     const releaseNotes = await generateReleaseNotes(gnContext(), [
       gnCommit({
@@ -102,41 +101,45 @@ describe('Changelog writer configs', () => {
         references: [{ issue: '99' }],
       }),
     ])
+
     expect(releaseNotes).toMatchSnapshot()
   })
 })
 
 describe('Changelog writer configs - Release header', () => {
-  test('The release header content is formatted correctly', async () => {
+  it('The release header content is formatted correctly', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext(), [
       gnCommit({
         tag: 'Update',
         message: 'Make tests more configurable without breaking',
       }),
     ])
-    expect(releaseNotes).toEqual(
+
+    expect(releaseNotes).toStrictEqual(
       expect.stringContaining(
         '## [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) (2019-05-26)',
       ),
     )
   })
 
-  test('When the release is a patch version, then the release header is an h3', async () => {
+  it('When the release is a patch version, then the release header is an h3', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext({ isPatch: true }), [
       gnCommit(),
     ])
-    expect(releaseNotes).toEqual(
+
+    expect(releaseNotes).toStrictEqual(
       expect.stringContaining(
         '### [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) (2019-05-26)',
       ),
     )
   })
 
-  test('When a title is included, then the release header includes it', async () => {
+  it('When a title is included, then the release header includes it(', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext({ title: 'Rad release' }), [
       gnCommit(),
     ])
-    expect(releaseNotes).toEqual(
+
+    expect(releaseNotes).toStrictEqual(
       expect.stringContaining(
         '## [1.3.0](https://github.com/crystal-ball/semantic-release-base/compare/v1.2.0...v1.3.0) Rad release (2019-05-26)',
       ),
@@ -145,22 +148,24 @@ describe('Changelog writer configs - Release header', () => {
 })
 
 describe('Changelog writer configs - Release notes', () => {
-  test('When a release has a breaking change, then the notes partial is rendered', async () => {
+  it('When a release has a breaking change, then the notes partial is rendered', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext({ version: '2.0.0' }), [
       gnCommit({ notes: [{ title: 'BREAKING CHANGE', text: 'Test breaking' }] }),
     ])
-    expect(releaseNotes).toEqual(
+
+    expect(releaseNotes).toStrictEqual(
       expect.stringContaining('### 💥 Breaking Changes!\n\n* Test breaking'),
     )
   })
 
-  test('When a release has release notes, then the notes partial is rendered', async () => {
+  it('When a release has release notes, then the notes partial is rendered', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext(), [
       gnCommit({
         notes: [{ title: 'RELEASE NOTES', text: 'This release introduces depracations' }],
       }),
     ])
-    expect(releaseNotes).toEqual(
+
+    expect(releaseNotes).toStrictEqual(
       expect.stringContaining(
         '### 🔖 Release Notes\n\n* This release introduces depracations',
       ),
@@ -169,7 +174,7 @@ describe('Changelog writer configs - Release notes', () => {
 })
 
 describe('Changelog writer configs - Commit groups', () => {
-  test('The commit groups are rendered correctly', async () => {
+  it('The commit groups are rendered correctly', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext(), [
       gnCommit({ tag: 'Chore', message: 'Chore commit' }),
       gnCommit({ tag: 'Fix' }),
@@ -179,29 +184,32 @@ describe('Changelog writer configs - Commit groups', () => {
       gnCommit({ tag: 'Update' }),
       gnCommit({ tag: 'Build', message: 'Build commit' }),
     ])
+
     expect(releaseNotes).toMatchSnapshot()
   })
 })
 
 describe('Changelog writer configs - Commits', () => {
-  test('The commit content is formatted correctly', async () => {
+  it('The commit content is formatted correctly', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext(), [
       gnCommit({ tag: 'Update', message: 'Make the tests delightful' }),
       gnCommit({ tag: 'Update', message: 'Make the tests really fast' }),
     ])
+
     expect(releaseNotes).toMatchSnapshot()
   })
 
-  test('When a commit message starts with a lowercase letter, then it is capitalized', async () => {
+  it('When a commit message starts with a lowercase letter, then it is capitalized', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext(), [
       gnCommit({ tag: 'Update', message: 'add additional config options' }),
     ])
+
     expect(releaseNotes).toMatchSnapshot()
   })
 })
 
 describe('Changelog writer configs - References', () => {
-  test('When a commit has references, then they are rendered correctly', async () => {
+  it('When a commit has references, then they are rendered correctly', async () => {
     const releaseNotes = await generateReleaseNotes(gnContext(), [
       gnCommit({
         tag: 'Fix',
@@ -212,6 +220,7 @@ describe('Changelog writer configs - References', () => {
         ],
       }),
     ])
+
     expect(releaseNotes).toMatchSnapshot()
   })
 })
