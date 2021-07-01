@@ -40,6 +40,6 @@
     "@crystal-ball/prettier-base": "2.7.0",
     "@types/jest": "26.0.23",
     "eslint-config-eloquence": "19.1.0",
-    "jest": "27.0.3"
+    "jest": "27.0.6"
   }
 }
