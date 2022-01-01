@@ -37,9 +37,9 @@
   },
   "devDependencies": {
     "@crystal-ball/commitizen-base": "2.11.0",
-    "@crystal-ball/prettier-base": "2.9.0",
-    "@types/jest": "27.0.3",
+    "@crystal-ball/prettier-base": "2.10.0",
+    "@types/jest": "27.4.0",
     "eslint-config-eloquence": "19.1.0",
-    "jest": "27.4.2"
+    "jest": "27.4.5"
   }
 }
