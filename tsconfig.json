@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // --- Code generation
+    "noEmit": true,
+
+    // --- Type checking
+    "allowJs": true, // Allow JS files to be compiled
+    "checkJs": true, // Opt in to type checking for JS files
+    "strict": true,
+    "noUncheckedIndexedAccess": false, // Every property access with an index could be undefined - todo
+    "skipLibCheck": true, // Skip type checking .d.ts declaration files (recommended by TS)
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+    // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
+    // "strictNullChecks": true,              /* Enable strict null checks. */
+    // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
+    // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
+    // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
+    // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
+    // "alwaysStrict": true,
+
+    // --- Module resolution and file parsing
+    "moduleResolution": "node", // Use Node.js algorithm to resolve modules
+    "esModuleInterop": true, // Interop commonJS and ESM, fixes some issues importing commonJS (recommended by TS)
+    "isolatedModules": true, // Disallow features that require cross-file information for compilation (Babel safety check)
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+  },
+
+  "include": ["src/**/*"]
+}

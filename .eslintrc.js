@@ -1,5 +1,11 @@
 'use strict'
 
-const eloquence = require('eslint-config-eloquence')
-
-module.exports = eloquence({ target: 'node', enableESM: false, enableTS: false })
+module.exports = {
+  extends: 'eloquence/node',
+  rules: {
+    // CommonJS rule overrides
+    'import/extensions': 'off',
+    'import/no-useless-path-segments': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+  },
+}
