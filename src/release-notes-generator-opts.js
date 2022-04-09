@@ -1,8 +1,8 @@
 'use strict'
 
-const path = require('path')
-const fs = require('fs')
 const assert = require('assert')
+const fs = require('fs')
+const path = require('path')
 
 // Read in all the handlebars templates and partials
 const hbsPartials = ['commit', 'header', 'main', 'notes'].reduce((acc, filename) => {

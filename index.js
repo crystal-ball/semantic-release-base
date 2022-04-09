@@ -1,9 +1,9 @@
 'use strict'
 
-const changelogOpts = require('./src/changelog-opts')
-const gitOpts = require('./src/git-opts')
-const githubOpts = require('./src/github-opts')
-const releaseNotesGeneratorOpts = require('./src/release-notes-generator-opts')
+const changelogOpts = require('./src/changelog-opts.js')
+const gitOpts = require('./src/git-opts.js')
+const githubOpts = require('./src/github-opts.js')
+const releaseNotesGeneratorOpts = require('./src/release-notes-generator-opts.js')
 
 module.exports = {
   // Option is passed to all plugins to configure using ESLint commit format

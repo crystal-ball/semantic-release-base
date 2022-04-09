@@ -1,9 +1,11 @@
 'use strict'
 
 const { Readable, Writable } = require('stream')
+
+// eslint-disable-next-line import/no-extraneous-dependencies -- Use bundled version from @semantic-release/release-notes-generator
 const conventionalChangelogWriter = require('conventional-changelog-writer')
 
-const { writerOpts } = require('./release-notes-generator-opts')
+const { writerOpts } = require('./release-notes-generator-opts.js')
 
 /** Generate a context with overrides */
 const gnContext = (overrides) => ({
